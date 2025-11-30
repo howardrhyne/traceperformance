@@ -406,6 +406,60 @@
       line-height: 1.5;
     }
 
+    /* Testimonials */
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .testimonial-card {
+      background: radial-gradient(circle at 0 0, rgba(74,124,89,0.07), var(--card));
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      padding: 2rem;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+    }
+
+    .testimonial-content {
+      position: relative;
+    }
+
+    .quote-icon {
+      margin-bottom: 1rem;
+    }
+
+    .testimonial-text {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--text);
+      margin: 0 0 1.5rem;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .author-info {
+      flex: 1;
+    }
+
+    .author-name {
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+    }
+
+    .author-detail {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
     /* Social Media */
     .social-links {
       display: flex;
@@ -488,7 +542,8 @@
     @media (max-width: 900px) {
       .instructor-grid,
       .video-grid,
-      .contact-grid {
+      .contact-grid,
+      .testimonial-grid {
         grid-template-columns: 1fr;
       }
 
@@ -579,7 +634,7 @@
               <img src="jeffrey.png" alt="Jeffrey Taylor, PGA Professional" class="instructor-photo" />
               <div class="instructor-info">
                 <h3>Jeffrey Taylor</h3>
-                <div class="instructor-title">PGA Professional</div>
+                <div class="instructor-title">PGA Associate Professional</div>
                 <p>Putting specialist with a systematic approach to green reading, speed control, and stroke mechanics. Jeffrey's tour-inspired methods help golfers of all levels lower their scores on the greens.</p>
               </div>
             </div>
@@ -612,6 +667,101 @@
             <p style="font-size: 0.9rem; color: var(--muted); margin-top: 1rem;">
               "Great golf instruction is about understanding each student's unique needs and building a plan that works for their game and lifestyle."
             </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials">
+      <div class="section-inner">
+        <div class="section-label">Student Success</div>
+        <h2 class="section-title">What Our Students Say</h2>
+        <p class="section-subtitle">
+          Hear from golfers who have improved their game through our professional instruction at Carolina Trace.
+        </p>
+        
+        <div class="testimonial-grid">
+          <div class="testimonial-card" style="grid-column: 1 / -1; max-width: 800px; margin: 0 auto;">
+            <div class="testimonial-content">
+              <div class="quote-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor" style="width: 30px; height: 30px; color: var(--accent);">
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-10zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                </svg>
+              </div>
+              <p class="testimonial-text">
+                "Working with the team at Trace Performance Center throughout 2025 has completely transformed my game. I started the year with a 5.2 handicap index and finished November at 1.8—earning recognition as the most improved golfer at the club.
+                <br><br>
+                Ed Walls simplified my entire approach to the full swing. His ability to break down complex mechanics and tailor instruction to the way I naturally move made an immediate impact. He also helped me build a rock-solid pre-shot routine focused on process rather than results, bringing consistency, calm, and confidence to every shot.
+                <br><br>
+                Jeffrey Taylor elevated my putting to a completely different level. His coaching dramatically reduced my 3-putts, sharpened my speed control, and improved the clarity with which I read greens. His equipment guidance and club work ensured everything I used supported the progress I was making.
+                <br><br>
+                Together, they are the best coaches I've ever worked with. Their combined expertise, professionalism, and ability to personalize instruction make Trace Performance Center the premier destination for any golfer committed to real improvement."
+              </p>
+              <div class="testimonial-author">
+                <div class="author-info">
+                  <div class="author-name">Howard R.</div>
+                  <div class="author-detail">Improved from 5.2 to 1.8 Handicap • Most Improved Golfer 2025</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <div class="quote-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor" style="width: 30px; height: 30px; color: var(--accent);">
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-10zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                </svg>
+              </div>
+              <p class="testimonial-text">
+                "Jeffrey's putting instruction completely transformed my short game. I went from dreading the greens to actually looking forward to putting. My handicap dropped 4 strokes in just two months!"
+              </p>
+              <div class="testimonial-author">
+                <div class="author-info">
+                  <div class="author-name">Mike R.</div>
+                  <div class="author-detail">12 Handicap • Member Since 2023</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <div class="quote-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor" style="width: 30px; height: 30px; color: var(--accent);">
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-10zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                </svg>
+              </div>
+              <p class="testimonial-text">
+                "Ed's approach to swing mechanics is outstanding. He helped me fix a slice I'd battled for years. The video analysis and personalized practice plan made all the difference."
+              </p>
+              <div class="testimonial-author">
+                <div class="author-info">
+                  <div class="author-name">Sarah L.</div>
+                  <div class="author-detail">8 Handicap • Lessons Since 2022</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <div class="quote-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor" style="width: 30px; height: 30px; color: var(--accent);">
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-10zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                </svg>
+              </div>
+              <p class="testimonial-text">
+                "The junior program at Trace Performance Center has been incredible for my daughter. Ed's patience and teaching style helped her develop confidence and proper fundamentals from day one."
+              </p>
+              <div class="testimonial-author">
+                <div class="author-info">
+                  <div class="author-name">Jennifer M.</div>
+                  <div class="author-detail">Parent • Junior Program</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
