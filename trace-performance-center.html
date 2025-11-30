@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Trace Performance Center | Golf Training School - Ed Walls & Jeffrey Taylor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Trace Performance Center Golf Training School at Carolina Trace Country Club. Expert instruction from PGA Professionals Ed Walls and Jeffrey Taylor in Sanford, NC.">
+  <style>
+    :root {
+      --bg: #1a2e1a;
+      --bg-alt: #0f1b0f;
+      --accent: #4a7c59;
+      --accent-soft: rgba(74, 124, 89, 0.12);
+      --text: #f5f5f5;
+      --muted: #9ca3af;
+      --card: #263026;
+      --border-soft: rgba(255,255,255,0.06);
+      --max-width: 1200px;
+      --radius-lg: 18px;
+      --shadow-soft: 0 18px 45px rgba(0,0,0,0.55);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+      background: radial-gradient(circle at top, #2d4a2d 0, #1a2e1a 45%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border-soft);
+      backdrop-filter: blur(16px);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: linear-gradient(to bottom, rgba(26,46,26,0.98), rgba(26,46,26,0.75), transparent);
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo-image {
+      width: 60px;
+      height: 60px;
+      border-radius: 8px;
+    }
+
+    .logo-text {
+      font-weight: 600;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      color: #e5e7eb;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.4rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.2s ease-out;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(74,124,89,0.7);
+      color: #f9fafb;
+      text-decoration: none;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background: radial-gradient(circle at 20% 0, rgba(255,255,255,0.14), rgba(26,46,26,0.9));
+    }
+
+    .nav-cta:hover {
+      background: radial-gradient(circle at 10% 0, rgba(255,255,255,0.25), rgba(26,46,26,0.9));
+    }
+
+    main {
+      flex: 1;
+    }
+
+    section {
+      padding: 3.5rem 1.25rem;
+    }
+
+    .section-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    /* Hero */
+    .hero {
+      padding-top: 4rem;
+      padding-bottom: 4.5rem;
+      text-align: center;
+      background: 
+        linear-gradient(rgba(26, 46, 26, 0.6), rgba(15, 27, 15, 0.7)),
+        url('lake18.jpg'),
+        linear-gradient(135deg, 
+          #1a2e1a 0%, 
+          #2d4a2d 25%, 
+          #4a7c59 50%, 
+          #5c8a6b 75%, 
+          #6e9d7d 100%);
+      background-size: cover, cover, 400% 400%;
+      background-position: center, center, 0% 50%;
+      background-repeat: no-repeat, no-repeat, no-repeat;
+      color: white;
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 80%, rgba(74, 124, 89, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(127, 176, 105, 0.2) 0%, transparent 50%),
+        linear-gradient(135deg, rgba(26, 46, 26, 0.4), rgba(15, 27, 15, 0.6));
+      z-index: 1;
+    }
+
+    .hero .section-inner {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-logo {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto 2rem;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      backdrop-filter: blur(10px);
+    }
+
+    .eyebrow {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #7fb069;
+      margin-bottom: 0.7rem;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 3.2vw + 1.3rem, 3.4rem);
+      line-height: 1.03;
+      margin: 0 0 1rem;
+      color: white;
+      text-shadow: 0 3px 6px rgba(0,0,0,0.5);
+    }
+
+    .hero-sub {
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 42rem;
+      font-size: 1.1rem;
+      margin: 0 auto;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+      background: rgba(26, 46, 26, 0.3);
+      padding: 1.5rem 2rem;
+      border-radius: 12px;
+      backdrop-filter: blur(5px);
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-top: 2rem;
+      justify-content: center;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      border-radius: 999px;
+      padding: 0.9rem 1.55rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+    }
+
+    .btn-primary {
+      color: #1a2e1a;
+      background: linear-gradient(135deg, #7fb069, #4a7c59);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.65);
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.05);
+    }
+
+    .btn-secondary {
+      color: #e5e7eb;
+      background: rgba(38,48,38,0.9);
+      border: 1px solid rgba(148,163,184,0.5);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(38,48,38,1);
+    }
+
+    /* Generic section headings */
+    .section-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      margin: 0 0 0.4rem;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      max-width: 34rem;
+      font-size: 0.94rem;
+      margin-bottom: 1.7rem;
+    }
+
+    /* Instructor Grid */
+    .instructor-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 2.5rem;
+      margin-top: 2rem;
+    }
+
+    .instructor-card {
+      background: radial-gradient(circle at 0 0, rgba(74,124,89,0.07), var(--card));
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      padding: 2rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .instructor-header {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .instructor-photo {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 3px solid var(--accent);
+      object-fit: cover;
+    }
+
+    .instructor-info h3 {
+      margin: 0 0 0.3rem;
+      font-size: 1.4rem;
+      color: var(--text);
+    }
+
+    .instructor-title {
+      color: var(--accent);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+
+    .instructor-specialties {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+
+    .specialty-tag {
+      background: rgba(74,124,89,0.2);
+      border: 1px solid rgba(74,124,89,0.4);
+      color: var(--accent);
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+    }
+
+    /* Video Section */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .video-card {
+      background: var(--card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .video-embed {
+      width: 100%;
+      height: 200px;
+      border: none;
+    }
+
+    .shorts-placeholder {
+      background: linear-gradient(135deg, #ff0000, #cc0000);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .shorts-placeholder:hover {
+      transform: scale(1.05);
+    }
+
+    .shorts-content {
+      text-align: center;
+    }
+
+    .video-info {
+      padding: 1.5rem;
+    }
+
+    .video-title {
+      font-size: 1.1rem;
+      margin: 0 0 0.5rem;
+      color: var(--text);
+    }
+
+    .video-description {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    /* Social Media */
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      color: var(--text);
+      text-decoration: none;
+      background: var(--card);
+      transition: all 0.2s ease;
+    }
+
+    .social-link:hover {
+      background: var(--accent);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .social-icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* Contact Section */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .contact-card {
+      background: linear-gradient(145deg, var(--card), rgba(38,48,38,0.95));
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      padding: 1.8rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .contact-row {
+      margin-bottom: 1rem;
+    }
+
+    .contact-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      margin-bottom: 0.3rem;
+    }
+
+    .contact-value {
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    footer {
+      border-top: 1px solid var(--border-soft);
+      padding: 2rem 1.25rem;
+      background: var(--bg-alt);
+      text-align: center;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 900px) {
+      .instructor-grid,
+      .video-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .instructor-header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .social-links {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      section {
+        padding: 2.5rem 1.25rem;
+      }
+
+      .hero {
+        background-attachment: scroll;
+        min-height: 80vh;
+      }
+
+      .hero-sub {
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+      }
+
+      .hero-logo {
+        width: 150px;
+        height: 150px;
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="nav-inner">
+      <div class="logo">
+        <img src="tpclogo.png" alt="Trace Performance Center" class="logo-image" />
+        <div class="logo-text">Trace Performance Center</div>
+      </div>
+      <nav class="nav-links">
+        <a href="#instructors">Instructors</a>
+        <a href="#videos">Training Videos</a>
+        <a href="#programs">Programs</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a href="#contact" class="nav-cta">Book a Lesson</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="section-inner">
+        <img src="tpclogo.png" alt="Trace Performance Center" class="hero-logo" />
+        <div class="eyebrow">Carolina Trace Country Club</div>
+        <h1></h1>
+        <p class="hero-sub">
+          Elite golf instruction and training from PGA Professionals <strong>Ed Walls</strong> and <strong>Jeffrey Taylor</strong>.
+          Located at Carolina Trace Country Club in Sanford, NC, serving golfers throughout the Sandhills and Triangle regions.
+        </p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn-primary">Schedule Instruction</a>
+          <a href="#videos" class="btn-secondary">Watch Training Videos</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- INSTRUCTORS -->
+    <section id="instructors">
+      <div class="section-inner">
+        <div class="section-label">Meet Your Instructors</div>
+        <h2 class="section-title">PGA Professional Golf Instruction</h2>
+        <p class="section-subtitle">
+          Two experienced PGA Professionals bringing decades of teaching expertise and tour-level instruction to Carolina Trace.
+        </p>
+        
+        <div class="instructor-grid">
+          <div class="instructor-card">
+            <div class="instructor-header">
+              <img src="jeffrey.png" alt="Jeffrey Taylor, PGA Professional" class="instructor-photo" />
+              <div class="instructor-info">
+                <h3>Jeffrey Taylor</h3>
+                <div class="instructor-title">PGA Professional</div>
+                <p>Putting specialist with a systematic approach to green reading, speed control, and stroke mechanics. Jeffrey's tour-inspired methods help golfers of all levels lower their scores on the greens.</p>
+              </div>
+            </div>
+            <div class="instructor-specialties">
+              <span class="specialty-tag">Putting Instruction</span>
+              <span class="specialty-tag">Green Reading</span>
+              <span class="specialty-tag">Short Game</span>
+              <span class="specialty-tag">Mental Game</span>
+            </div>
+            <p style="font-size: 0.9rem; color: var(--muted); margin-top: 1rem;">
+              "Tour-level putting isn't reserved for tour players. With the right process, any committed golfer can roll the ball better and enjoy the game more."
+            </p>
+          </div>
+
+          <div class="instructor-card">
+            <div class="instructor-header">
+              <img src="ed-walls.jpg" alt="Ed Walls, PGA Professional" class="instructor-photo" />
+              <div class="instructor-info">
+                <h3>Ed Walls</h3>
+                <div class="instructor-title">PGA Professional</div>
+                <p>Comprehensive golf instruction focusing on swing mechanics, course management, and player development. Ed brings years of teaching experience and a passion for helping golfers reach their potential.</p>
+              </div>
+            </div>
+            <div class="instructor-specialties">
+              <span class="specialty-tag">Full Swing</span>
+              <span class="specialty-tag">Course Management</span>
+              <span class="specialty-tag">Junior Development</span>
+              <span class="specialty-tag">Playing Lessons</span>
+            </div>
+            <p style="font-size: 0.9rem; color: var(--muted); margin-top: 1rem;">
+              "Great golf instruction is about understanding each student's unique needs and building a plan that works for their game and lifestyle."
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRAINING VIDEOS -->
+    <section id="videos">
+      <div class="section-inner">
+        <div class="section-label">Training Content</div>
+        <h2 class="section-title">Golf Instruction Videos</h2>
+        <p class="section-subtitle">
+          Watch our latest training videos covering everything from putting fundamentals to advanced swing techniques.
+        </p>
+        
+        <div class="video-grid">
+          <div class="video-card">
+            <div class="video-embed shorts-placeholder" onclick="window.open('https://www.youtube.com/shorts/NqeEDpowl7k?feature=share', '_blank')">
+              <div class="shorts-content">
+                <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor" style="width: 60px; height: 60px; color: white;">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+                <p style="color: white; margin-top: 10px; font-weight: bold;">YouTube Short</p>
+                <p style="color: #ccc; font-size: 14px;">Click to watch on YouTube</p>
+              </div>
+            </div>
+            <div class="video-info">
+              <h3 class="video-title">Golf Training Short</h3>
+              <p class="video-description">Quick golf tip and training technique demonstration.</p>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <iframe class="video-embed" 
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                    title="Swing Mechanics"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+            </iframe>
+            <div class="video-info">
+              <h3 class="video-title">Swing Mechanics</h3>
+              <p class="video-description">Essential swing fundamentals and common fixes with Ed Walls.</p>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <iframe class="video-embed" 
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                    title="Course Management"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+            </iframe>
+            <div class="video-info">
+              <h3 class="video-title">Course Management</h3>
+              <p class="video-description">Strategic thinking and smart decision-making on the golf course.</p>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <iframe class="video-embed" 
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                    title="Green Reading"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+            </iframe>
+            <div class="video-info">
+              <h3 class="video-title">Green Reading Mastery</h3>
+              <p class="video-description">Advanced techniques for reading greens and improving your putting accuracy.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="social-links">
+          <a href="https://youtube.com/@traceperformancecenter" class="social-link" target="_blank">
+            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+            YouTube Channel
+          </a>
+          
+          <a href="https://instagram.com/traceperformancecenter" class="social-link" target="_blank">
+            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.017 0C8.396 0 7.989.016 7.741.048 7.448.081 7.252.13 7.076.246a3.2 3.2 0 0 0-1.158 1.158c-.116.176-.165.372-.198.665C5.688 2.297 5.672 2.704 5.672 6.325v5.35c0 3.621.016 4.028.048 4.276.033.293.082.489.198.665a3.2 3.2 0 0 0 1.158 1.158c.176.116.372.165.665.198.248.032.655.048 4.276.048h5.35c3.621 0 4.028-.016 4.276-.048.293-.033.489-.082.665-.198a3.2 3.2 0 0 0 1.158-1.158c.116-.176.165-.372.198-.665.032-.248.048-.655.048-4.276V6.325c0-3.621-.016-4.028-.048-4.276a1.793 1.793 0 0 0-.198-.665 3.2 3.2 0 0 0-1.158-1.158C16.548.165 16.352.116 16.059.083 15.811.051 15.404.035 11.783.035L12.017 0zm-2.117 2.192c3.504 0 3.92.016 5.303.075 1.279.058 1.973.27 2.437.448.612.238 1.048.522 1.508.982.46.46.744.896.982 1.508.178.464.39 1.158.448 2.437.059 1.383.075 1.799.075 5.303s-.016 3.92-.075 5.303c-.058 1.279-.27 1.973-.448 2.437a4.018 4.018 0 0 1-.982 1.508c-.46.46-.896.744-1.508.982-.464.178-1.158.39-2.437.448-1.383.059-1.799.075-5.303.075s-3.92-.016-5.303-.075c-1.279-.058-1.973-.27-2.437-.448a4.018 4.018 0 0 1-1.508-.982 4.018 4.018 0 0 1-.982-1.508c-.178-.464-.39-1.158-.448-2.437C2.208 15.92 2.192 15.504 2.192 12s.016-3.92.075-5.303c.058-1.279.27-1.973.448-2.437.238-.612.522-1.048.982-1.508.46-.46.896-.744 1.508-.982.464-.178 1.158-.39 2.437-.448 1.383-.059 1.799-.075 5.303-.075z"/>
+              <circle cx="12" cy="12" r="3.2"/>
+              <circle cx="18.406" cy="5.594" r="1.44"/>
+            </svg>
+            Instagram
+          </a>
+          
+          <a href="https://facebook.com/traceperformancecenter" class="social-link" target="_blank">
+            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+            Facebook
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGRAMS -->
+    <section id="programs">
+      <div class="section-inner">
+        <div class="section-label">Training Programs</div>
+        <h2 class="section-title">Comprehensive Golf Instruction</h2>
+        <p class="section-subtitle">
+          Customized instruction programs designed to improve every aspect of your game.
+        </p>
+        
+        <div class="video-grid">
+          <div class="instructor-card">
+            <h3>Individual Lessons</h3>
+            <p>One-on-one instruction tailored to your specific needs and goals.</p>
+            <div class="instructor-specialties">
+              <span class="specialty-tag">60-minute sessions</span>
+              <span class="specialty-tag">Video analysis</span>
+              <span class="specialty-tag">Custom practice plans</span>
+            </div>
+          </div>
+          
+          <div class="instructor-card">
+            <h3>Group Clinics</h3>
+            <p>Small group instruction focusing on specific skills and techniques.</p>
+            <div class="instructor-specialties">
+              <span class="specialty-tag">2-4 players</span>
+              <span class="specialty-tag">Themed sessions</span>
+              <span class="specialty-tag">Cost effective</span>
+            </div>
+          </div>
+          
+          <div class="instructor-card">
+            <h3>Junior Development</h3>
+            <p>Comprehensive programs designed specifically for young golfers.</p>
+            <div class="instructor-specialties">
+              <span class="specialty-tag">Ages 8-18</span>
+              <span class="specialty-tag">Fundamentals focused</span>
+              <span class="specialty-tag">Tournament prep</span>
+            </div>
+          </div>
+          
+          <div class="instructor-card">
+            <h3>Playing Lessons</h3>
+            <p>On-course instruction to improve course management and shot execution.</p>
+            <div class="instructor-specialties">
+              <span class="specialty-tag">Real course conditions</span>
+              <span class="specialty-tag">Strategy focused</span>
+              <span class="specialty-tag">Mental game</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-inner">
+        <div class="section-label">Get Started</div>
+        <h2 class="section-title">Book Your Instruction at Carolina Trace</h2>
+        <p class="section-subtitle">
+          Located at Carolina Trace Country Club in Sanford, NC. Contact either instructor directly to schedule your lesson.
+        </p>
+        
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3>Jeffrey Taylor</h3>
+            <div class="contact-row">
+              <div class="contact-label">Specialization</div>
+              <div class="contact-value">Putting & Short Game</div>
+            </div>
+            <div class="contact-row">
+              <div class="contact-label">Email</div>
+              <div class="contact-value"><a href="mailto:jeffrey@traceperformancecenter.com">jeffrey@traceperformancecenter.com</a></div>
+            </div>
+            <div class="contact-row">
+              <div class="contact-label">Phone</div>
+              <div class="contact-value"><a href="tel:919-555-0101">(919) 555-0101</a></div>
+            </div>
+          </div>
+          
+          <div class="contact-card">
+            <h3>Ed Walls</h3>
+            <div class="contact-row">
+              <div class="contact-label">Specialization</div>
+              <div class="contact-value">Full Swing & Course Management</div>
+            </div>
+            <div class="contact-row">
+              <div class="contact-label">Email</div>
+              <div class="contact-value"><a href="mailto:ed@traceperformancecenter.com">ed@traceperformancecenter.com</a></div>
+            </div>
+            <div class="contact-row">
+              <div class="contact-label">Phone</div>
+              <div class="contact-value"><a href="tel:919-555-0102">(919) 555-0102</a></div>
+            </div>
+          </div>
+          
+          <div class="contact-card">
+            <h3>Carolina Trace Country Club</h3>
+            <div class="contact-row">
+              <div class="contact-label">Address</div>
+              <div class="contact-value">1212 Trace Dr, Sanford, NC 27332</div>
+            </div>
+            <div class="contact-row">
+              <div class="contact-label">Service Area</div>
+              <div class="contact-value">Sanford • Pinehurst • Southern Pines • Raleigh • Durham • Triangle</div>
+            </div>
+            <div class="contact-row">
+              <div class="contact-label">Facility</div>
+              <div class="contact-value">Private 36-hole championship golf course</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© 2025 Trace Performance Center | Golf Training School</div>
+      <div>PGA Professionals Ed Walls & Jeffrey Taylor • Carolina Trace Country Club • Sanford, NC</div>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
