@@ -354,7 +354,7 @@
     /* Video Section */
     .video-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
       margin-top: 2rem;
     }
@@ -388,6 +388,36 @@
 
     .shorts-content {
       text-align: center;
+    }
+
+    .instagram-video-embed {
+      background: linear-gradient(135deg, #E4405F, #C13584);
+      position: relative;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .instagram-content {
+      text-align: center;
+      color: white;
+    }
+
+    .instagram-preview {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .instagram-placeholder {
+      transition: opacity 0.3s ease;
+    }
+
+    .instagram-preview iframe {
+      width: 100% !important;
+      height: 200px !important;
+      border: none;
+      border-radius: 8px 8px 0 0;
     }
 
     .video-info {
@@ -813,6 +843,26 @@
             </div>
           </div>
 
+          <div class="video-card">
+            <div class="video-embed instagram-preview" id="instagram-1" data-url="https://www.instagram.com/reel/DMI7beSxgVR/">
+              <div class="instagram-placeholder" style="background: linear-gradient(135deg, #E4405F, #C13584); position: relative; cursor: pointer; display: flex; align-items: center; justify-content: center; height: 200px;" onclick="window.open('https://www.instagram.com/reel/DMI7beSxgVR/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==', '_blank')">
+                <div style="text-align: center; color: white;">
+                  <svg viewBox="0 0 24 24" fill="white" style="width: 60px; height: 60px; margin-bottom: 10px;">
+                    <path d="M12.017 0C8.396 0 7.989.016 7.741.048 7.448.081 7.252.13 7.076.246a3.2 3.2 0 0 0-1.158 1.158c-.116.176-.165.372-.198.665C5.688 2.297 5.672 2.704 5.672 6.325v5.35c0 3.621.016 4.028.048 4.276.033.293.082.489.198.665a3.2 3.2 0 0 0 1.158 1.158c.176.116.372.165.665.198.248.032.655.048 4.276.048h5.35c3.621 0 4.028-.016 4.276-.048.293-.033.489-.082.665-.198a3.2 3.2 0 0 0 1.158-1.158c.116-.176.165-.372.198-.665.032-.248.048-.655.048-4.276V6.325c0-3.621-.016-4.028-.048-4.276a1.793 1.793 0 0 0-.198-.665 3.2 3.2 0 0 0-1.158-1.158C16.548.165 16.352.116 16.059.083 15.811.051 15.404.035 11.783.035L12.017 0zm-2.117 2.192c3.504 0 3.92.016 5.303.075 1.279.058 1.973.27 2.437.448.612.238 1.048.522 1.508.982.46.46.744.896.982 1.508.178.464.39 1.158.448 2.437.059 1.383.075 1.799.075 5.303s-.016 3.92-.075 5.303c-.058 1.279-.27 1.973-.448 2.437a4.018 4.018 0 0 1-.982 1.508c-.46.46-.896.744-1.508.982-.464.178-1.158.39-2.437.448-1.383.059-1.799.075-5.303.075s-3.92-.016-5.303-.075c-1.279-.058-1.973-.27-2.437-.448a4.018 4.018 0 0 1-1.508-.982 4.018 4.018 0 0 1-.982-1.508c-.178-.464-.39-1.158-.448-2.437C2.208 15.92 2.192 15.504 2.192 12s.016-3.92.075-5.303c.058-1.279.27-1.973.448-2.437.238-.612.522-1.048.982-1.508.46-.46.896-.744 1.508-.982.464-.178 1.158-.39 2.437-.448 1.383-.059 1.799-.075 5.303-.075z"/>
+                    <circle cx="12" cy="12" r="3.2"/>
+                    <circle cx="18.406" cy="5.594" r="1.44"/>
+                  </svg>
+                  <p style="color: white; margin: 0; font-weight: bold;">Instagram Reel</p>
+                  <p style="color: rgba(255,255,255,0.8); font-size: 14px; margin: 5px 0 0;">Click to watch on Instagram</p>
+                </div>
+              </div>
+            </div>
+            <div class="video-info">
+              <h3 class="video-title">Short game magic from 30 yards out</h3>
+              <p class="video-description">Latest golf instruction content and tips from our training sessions.</p>
+            </div>
+          </div>
+
           <!-- Course Management Video - Placeholder commented out
           <div class="video-card">
             <iframe class="video-embed" 
@@ -828,20 +878,26 @@
           </div>
           -->
 
-          <!-- Green Reading Video - Placeholder commented out
           <div class="video-card">
-            <iframe class="video-embed" 
-                    src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                    title="Green Reading"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
-            </iframe>
+            <div class="video-embed instagram-preview" id="instagram-2" data-url="https://www.instagram.com/p/DH9Y-OJRHY1/">
+              <div class="instagram-placeholder instagram-video-embed" onclick="window.open('https://www.instagram.com/p/DH9Y-OJRHY1/', '_blank')">
+                <div class="instagram-content">
+                  <svg viewBox="0 0 24 24" fill="white" style="width: 50px; height: 50px; margin-bottom: 8px;">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                    <path d="m16 11.37-.4-.45a9.65 9.65 0 0 0 .4.45z"/>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                    <circle cx="12" cy="12" r="4"/>
+                  </svg>
+                  <p style="color: white; margin: 8px 0 0; font-weight: bold; font-size: 14px;">Instagram Video</p>
+                  <p style="color: rgba(255,255,255,0.8); font-size: 12px; margin: 2px 0 0;">Click to watch</p>
+                </div>
+              </div>
+            </div>
             <div class="video-info">
-              <h3 class="video-title">Green Reading Mastery</h3>
-              <p class="video-description">Advanced techniques for reading greens and improving your putting accuracy.</p>
+              <h3 class="video-title">Golf Instruction Overview</h3>
+              <p class="video-description">Comprehensive look at our professional golf instruction approach and methodology.</p>
             </div>
           </div>
-          -->
         </div>
 
         <div class="social-links">
@@ -992,6 +1048,45 @@
       <div>PGA Professionals Ed Walls & Jeffrey Taylor • Carolina Trace Country Club • Sanford, NC</div>
     </div>
   </footer>
+
+  <script>
+    // Attempt to load Instagram previews using oEmbed API
+    async function loadInstagramPreviews() {
+      const instagramElements = document.querySelectorAll('.instagram-preview');
+      
+      for (const element of instagramElements) {
+        const url = element.dataset.url;
+        const placeholder = element.querySelector('.instagram-placeholder');
+        
+        try {
+          // Instagram oEmbed endpoint
+          const oembedUrl = `https://graph.instagram.com/oembed?url=${encodeURIComponent(url)}&maxwidth=400`;
+          
+          // Use a CORS proxy for client-side requests (alternative approach)
+          const corsProxy = 'https://api.allorigins.win/get?url=';
+          const response = await fetch(corsProxy + encodeURIComponent(oembedUrl));
+          
+          if (response.ok) {
+            const data = await response.json();
+            const oembedData = JSON.parse(data.contents);
+            
+            if (oembedData.html) {
+              // Replace placeholder with Instagram embed
+              placeholder.innerHTML = oembedData.html;
+              placeholder.style.background = 'none';
+              placeholder.onclick = null; // Remove custom click handler
+            }
+          }
+        } catch (error) {
+          console.log('Instagram preview not available for:', url);
+          // Keep the existing placeholder as fallback
+        }
+      }
+    }
+
+    // Try to load Instagram previews when page loads
+    document.addEventListener('DOMContentLoaded', loadInstagramPreviews);
+  </script>
 </div>
 </body>
 </html>
